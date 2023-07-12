@@ -115,71 +115,7 @@ async def gen_thumb(videoid, user_id):
         background.paste(logo, (width + 2, 138), mask=logo)
         background.paste(x, (710, 427), mask=x)
         background.paste(image3, (0, 0), mask=image3)
-
-        draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AM/assets/font2.ttf", 45)
-        font2 = ImageFont.truetype("AM/assets/font2.ttf", 70)
-        arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
-        font3 = ImageFont.truetype("AM/assets/font.ttf", 30)
-        para = textwrap.wrap(title, width=32)
-        j = 0
-        draw.text(
-            (6, 6), f"Divu Music", fill="Yellow", font=font3
-        )
-        draw.text(
-            (600, 150),
-            f"By SVD",
-            fill="white",
-            stroke_width=2,
-            stroke_fill="yellow",
-            font=font2,
-        )
-        for line in para:
-            if j == 1:
-                j += 1
-                draw.text(
-                    (600, 340),
-                    f"{line}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-            if j == 0:
-                j += 1
-                draw.text(
-                    (600, 280),
-                    f"{line}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-
-        draw.text(
-            (600, 450),
-            f"Views : {views[:23]}",
-            fill="white",
-            stroke_width=1,
-            stroke_fill="white",
-            font=font,
-        )
-        draw.text(
-            (600, 500),
-            f"Duration : {duration[:23]} Mins",
-            fill="white",
-            stroke_width=1,
-            stroke_fill="white",
-            font=font,
-        )
-        draw.text(
-            (600, 550),
-            f"Owner : Universe",
-            fill="white",
-            stroke_width=1,
-            stroke_fill="white",
-            font=font,
-        )
+        
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
