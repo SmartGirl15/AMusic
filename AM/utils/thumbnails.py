@@ -50,14 +50,14 @@ async def gen_thumb(videoid, user_id):
                 duration = "Unknown"
             thumbnail = result["thumbnails"][0]["url"].split("?")[0]
             try:
-                result["viewCount"]["short"]
+                views = result["viewCount"]["short"]
             except:
-                pass
+                views = "Unknown Views"
             try:
-                result["channel"]["name"]
+                channel = result["channel"]["name"]
             except:
-                pass
-
+                channel = "Unknown Channel"
+                
         async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
