@@ -258,9 +258,9 @@ async def gen_qthumb(videoid, user_id):
 
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("AM/assets/font2.ttf", 45)
-        ImageFont.truetype("AM/assets/font2.ttf", 70)
+        font2 = ImageFont.truetype("AM/assets/font2.ttf", 70)
         arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
-        ImageFont.truetype("AM/assets/font.ttf", 30)
+        font3 = ImageFont.truetype("AM/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         try:
             draw.text(
