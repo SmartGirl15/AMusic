@@ -114,7 +114,7 @@ async def gen_thumb(videoid, user_id):
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (width + 200, 138), mask=logo)
         background.paste(x, (1010, 427), mask=x)
-        background.paste(image3, (0, 0), mask=image3)
+        #background.paste(image3, (0, 0), mask=image3)
         
         try:
             os.remove(f"cache/thumb{videoid}.png")
