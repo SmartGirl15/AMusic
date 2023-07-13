@@ -75,7 +75,7 @@ async def gen_thumb(videoid, user_id):
         a = Image.new('L', [640, 640], 0)
         b = ImageDraw.Draw(a)
         #b.pieslice([(0, 0), (640,640)], 0, 225, fill = 255, outline = "white")
-        b.rectangle((100, 100, 1000, 1000), outline="blue")
+        b.rectangle((100, 600, 1000, 1500), outline="blue")
         c = np.array(xy)
         d = np.array(a)
         e = np.dstack((c, d))
@@ -89,7 +89,7 @@ async def gen_thumb(videoid, user_id):
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
 
-        bg = Image.open(f"AM/assets/rect1.png").convert('L')
+        bg = Image.open(f"AM/assets/rect1.png")
         image3 = changeImageSize(1280, 720, bg)
         image5 = image3.convert("RGBA")
         Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
