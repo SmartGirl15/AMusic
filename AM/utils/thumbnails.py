@@ -75,7 +75,7 @@ async def gen_thumb(videoid, user_id):
         a = Image.new('L', [640, 640], 0)
         b = ImageDraw.Draw(a)
         #b.pieslice([(0, 0), (640,640)], 0, 225, fill = 255, outline = "white")
-        b.rectangle((100, 100, 100, 100), fill="red", outline="blue")
+        b.rectangle((100, 100, 200, 200), fill="red", outline="blue")
         c = np.array(xy)
         d = np.array(a)
         e = np.dstack((c, d))
