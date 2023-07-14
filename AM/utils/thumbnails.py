@@ -13,7 +13,7 @@ from config import YOUTUBE_IMG_URL
 from AM import app
 
 
-def changeImageSize(maxWidth, maxHeight, image):
+def changeImageSize(maxWidth=500, maxHeight=300, image):
     widthRatio = maxWidth / image.size[0]
     heightRatio = maxHeight / image.size[1]
     newWidth = int(widthRatio * image.size[0])
