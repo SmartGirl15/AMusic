@@ -25,7 +25,7 @@ def changeImageSize(maxWidth, maxHeight, image):
 def add_corners(im):
     bigsize = (im.size[0] * 3, im.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
-    size = [(10,10), bigsize]
+    size = [(0,0), bigsize]
     ImageDraw.Draw(mask).rectangle(size, fill=255)
     mask = mask.resize(im.size, Image.LANCZOS)
     mask = ImageChops.darker(mask, im.split()[-1])
