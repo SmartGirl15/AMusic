@@ -115,13 +115,13 @@ async def gen_thumb(videoid, user_id):
         width = int((1280 - 600) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (150, 350), mask=logo)
-        background.paste(x, (100, 800), mask=x)
-        background.paste(x, (550, 90), mask=x)
+        #background.paste(x, (100, 800), mask=x)
+        background.paste(x, (550, 95), mask=x)
         #background.paste(x, (550, 550), mask=x)
         #background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AM/assets/font2.ttf", 15)
+        font = ImageFont.truetype("AM/assets/font2.ttf", 20)
         font2 = ImageFont.truetype("AM/assets/font2.ttf", 60)
         arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
         name_font = ImageFont.truetype("AM/assets/font.ttf", 30)
@@ -132,7 +132,7 @@ async def gen_thumb(videoid, user_id):
         )
         draw.text(
             (5, 50),
-            "SONG",
+            "NOW PLAYING",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
