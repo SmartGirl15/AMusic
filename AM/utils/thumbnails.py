@@ -9,7 +9,7 @@ import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from youtubesearchpython.__future__ import VideosSearch
 
-from config import YOUTUBE_IMG_URL
+from config import YOUTUBE_IMG_URL, MUSIC_BOT_NAME
 from AM import app
 
 
@@ -121,10 +121,10 @@ async def gen_thumb(videoid, user_id):
         #background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("assets/font2.ttf", 40)
-        font2 = ImageFont.truetype("assets/font2.ttf", 70)
-        arial = ImageFont.truetype("assets/font2.ttf", 30)
-        name_font = ImageFont.truetype("assets/font.ttf", 30)
+        font = ImageFont.truetype("AM/assets/font2.ttf", 40)
+        font2 = ImageFont.truetype("AM/assets/font2.ttf", 70)
+        arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
+        name_font = ImageFont.truetype("AM/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
