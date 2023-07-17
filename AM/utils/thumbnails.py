@@ -115,7 +115,9 @@ async def gen_thumb(videoid, user_id):
         width = int((1280 - 600) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (150, 350), mask=logo)
+        background.paste(x, (150, 100), mask=x)
         background.paste(x, (550, 100), mask=x)
+        background.paste(x, (550, 550), mask=x)
         #background.paste(image3, (0, 0), mask=image3)
         
         try:
