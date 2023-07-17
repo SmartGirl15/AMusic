@@ -111,6 +111,7 @@ async def gen_thumb(videoid, user_id):
             im.save(f"cache/cropped{videoid}.png")
 
         crop_img = Image.open(f"cache/cropped{videoid}.png")
+        crop_img.load()
         logo = crop_img.convert("RGBA")
         logo1 = logo.thumbnail((400, 400), Image.LANCZOS)
         logo2 = logo1.rotate(45, PIL.Image.NEAREST, expand = 1)
