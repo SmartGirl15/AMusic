@@ -121,18 +121,18 @@ async def gen_thumb(videoid, user_id):
         #background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AM/assets/font2.ttf", 40)
-        font2 = ImageFont.truetype("AM/assets/font2.ttf", 70)
+        font = ImageFont.truetype("AM/assets/font2.ttf", 15)
+        font2 = ImageFont.truetype("AM/assets/font2.ttf", 60)
         arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
         name_font = ImageFont.truetype("AM/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (5, 5), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
+            (10, 795), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
         )
         draw.text(
-            (430, 230),
-            "NOW PLAYING",
+            (5, 50),
+            "SONG",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
@@ -142,7 +142,7 @@ async def gen_thumb(videoid, user_id):
             if j == 1:
                 j += 1
                 draw.text(
-                    (400, 250),
+                    (5, 160),
                     f"{line}",
                     fill="white",
                     stroke_width=1,
@@ -152,7 +152,7 @@ async def gen_thumb(videoid, user_id):
             if j == 0:
                 j += 1
                 draw.text(
-                    (400, 270),
+                    (5, 200),
                     f"{line}",
                     fill="white",
                     stroke_width=1,
@@ -161,19 +161,19 @@ async def gen_thumb(videoid, user_id):
                 )
 
         draw.text(
-            (450, 300),
+            (450, 400),
             f"Views : {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (450, 350),
+            (450, 450),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (450, 400),
+            (450, 500),
             f"Channel : {channel}",
             (255, 255, 255),
             font=arial,
