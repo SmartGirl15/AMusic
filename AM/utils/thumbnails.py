@@ -84,14 +84,14 @@ async def gen_thumb(videoid, user_id):
         x = f.resize((200, 200))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")        
-        image1 = changeImageSize(800, 800, youtube)
+        image1 = changeImageSize(900, 800, youtube)
         image2 = image1.convert("RGBA")
         #background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(image2)
         background = enhancer.enhance(1)
 
         bg = Image.open(f"AM/assets/svd.png")
-        image3 = changeImageSize(800, 800, bg)
+        image3 = changeImageSize(900, 800, bg)
         image5 = image3.convert("RGBA")
         Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
 
@@ -116,19 +116,19 @@ async def gen_thumb(videoid, user_id):
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (150, 350), mask=logo)
         #background.paste(x, (100, 800), mask=x)
-        background.paste(x, (550, 95), mask=x)
+        background.paste(x, (560, 90), mask=x)
         #background.paste(x, (550, 550), mask=x)
         #background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AM/assets/font2.ttf", 20)
-        font2 = ImageFont.truetype("AM/assets/font2.ttf", 60)
+        font = ImageFont.truetype("AM/assets/font2.ttf", 30)
+        font2 = ImageFont.truetype("AM/assets/font2.ttf", 65)
         arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
         name_font = ImageFont.truetype("AM/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (10, 795), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
+            (500, 750), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
         )
         draw.text(
             (5, 50),
