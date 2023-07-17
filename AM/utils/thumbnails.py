@@ -84,14 +84,14 @@ async def gen_thumb(videoid, user_id):
         x = f.resize((200, 200))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")        
-        image1 = changeImageSize(900, 800, youtube)
+        image1 = changeImageSize(950, 800, youtube)
         image2 = image1.convert("RGBA")
         #background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(image2)
         background = enhancer.enhance(1)
 
         bg = Image.open(f"AM/assets/svd.png")
-        image3 = changeImageSize(900, 800, bg)
+        image3 = changeImageSize(950, 800, bg)
         image5 = image3.convert("RGBA")
         Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
 
