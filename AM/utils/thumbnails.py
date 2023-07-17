@@ -67,8 +67,8 @@ async def gen_thumb(videoid, user_id):
                     await f.close()
 
         try:
-            wxyz = await app.get_profile_photos(chat_id)
-            wxy = await app.download_media(wxyz[0]['file_id'], file_name=f'{chat_id}.jpg')
+            wxyz = await app.get_profile_photos(user_id)
+            wxy = await app.download_media(wxyz[0]['file_id'], file_name=f'{user_id}.jpg')
         except:
             hehe = await app.get_profile_photos(app.id)
             wxy = await app.download_media(hehe[0]['file_id'], file_name=f'{app.id}.jpg')
@@ -115,10 +115,55 @@ async def gen_thumb(videoid, user_id):
         width = int((1280 - 600) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (150, 350), mask=logo)
-        background.paste(x, (150, 100), mask=x)
-        background.paste(x, (550, 100), mask=x)
-        background.paste(x, (550, 550), mask=x)
+        background.paste(x, (100, 800), mask=x)
+        background.paste(x, (550, 90), mask=x)
+        #background.paste(x, (550, 550), mask=x)
         #background.paste(image3, (0, 0), mask=image3)
+
+        draw = ImageDraw.Draw(background)
+        font = ImageFont.truetype("AM/assets/font2.ttf", 45)
+        ImageFont.truetype("AM/assets/font2.ttf", 70)
+        arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
+        ImageFont.truetype("AM/assets/font.ttf", 30)
+        para = textwrap.wrap(title, width=32)
+        try:
+            draw.text(
+                (450, 300),
+                f"STARTED PLAYING",
+                fill="white",
+                stroke_width=3,
+                stroke_fill="grey",
+                font=font,
+            )
+            if para[0]:
+                text_w, text_h = draw.textsize(f"{para[0]}", font=font)
+                draw.text(
+                    ((1280 - text_w) / 2, 530),
+                    f"{para[0]}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+            if para[1]:
+                text_w, text_h = draw.textsize(f"{para[1]}", font=font)
+                draw.text(
+                    ((1280 - text_w) / 2, 580),
+                    f"{para[1]}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+        except:
+            pass
+        text_w, text_h = draw.textsize(f"Duration: {duration} Mins", font=arial)
+        draw.text(
+            ((1280 - text_w) / 2, 660),
+            f"Duration: {duration} Mins",
+            fill="white",
+            font=arial,
+        )
         
         try:
             os.remove(f"cache/thumb{videoid}.png")
