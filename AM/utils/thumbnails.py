@@ -116,7 +116,7 @@ async def gen_thumb(videoid, user_id):
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (150, 350), mask=logo)
         #background.paste(x, (100, 800), mask=x)
-        background.paste(x, (560, 90), mask=x)
+        background.paste(x, (810, 90), mask=x)
         #background.paste(x, (550, 550), mask=x)
         #background.paste(image3, (0, 0), mask=image3)
 
@@ -128,10 +128,10 @@ async def gen_thumb(videoid, user_id):
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (500, 750), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
+            (800, 750), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
         )
         draw.text(
-            (5, 50),
+            (35, 50),
             "NOW PLAYING",
             fill="white",
             stroke_width=2,
@@ -161,19 +161,19 @@ async def gen_thumb(videoid, user_id):
                 )
 
         draw.text(
-            (450, 400),
+            (500, 400),
             f"Views : {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (450, 450),
+            (500, 450),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (450, 500),
+            (500, 500),
             f"Channel : {channel}",
             (255, 255, 255),
             font=arial,
