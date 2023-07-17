@@ -136,7 +136,7 @@ async def gen_thumb(videoid, user_id):
                 font=font,
             )
             if para[0]:
-                text_w, text_h = draw.text(f"{para[0]}", font=font)
+                text_w, text_h = draw.text(text=f"{para[0]}", font=font)
                 draw.text(
                     ((1280 - text_w) / 2, 530),
                     f"{para[0]}",
@@ -146,7 +146,7 @@ async def gen_thumb(videoid, user_id):
                     font=font,
                 )
             if para[1]:
-                text_w, text_h = draw.text(f"{para[1]}", font=font)
+                text_w, text_h = draw.text(text=f"{para[1]}", font=font)
                 draw.text(
                     ((1280 - text_w) / 2, 580),
                     f"{para[1]}",
@@ -157,7 +157,7 @@ async def gen_thumb(videoid, user_id):
                 )
         except:
             pass
-        text_w, text_h = draw.text(f"Duration: {duration} Mins", font=arial)
+        text_w, text_h = draw.text(text=f"Duration: {duration} Mins", font=arial)
         draw.text(
             ((1280 - text_w) / 2, 660),
             f"Duration: {duration} Mins",
