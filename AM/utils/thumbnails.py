@@ -7,6 +7,7 @@ import aiohttp
 import numpy as np
 
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+import PIL
 from youtubesearchpython.__future__ import VideosSearch
 
 from config import YOUTUBE_IMG_URL, MUSIC_BOT_NAME
