@@ -116,13 +116,13 @@ async def gen_thumb(videoid, user_id):
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (150, 350), mask=logo)
         #background.paste(x, (100, 800), mask=x)
-        background.paste(x, (810, 90), mask=x)
+        background.paste(x, (660, 90), mask=x)
         #background.paste(x, (550, 550), mask=x)
         #background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("AM/assets/font2.ttf", 30)
-        font2 = ImageFont.truetype("AM/assets/font2.ttf", 65)
+        font2 = ImageFont.truetype("AM/assets/font2.ttf", 70)
         arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
         name_font = ImageFont.truetype("AM/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
@@ -161,19 +161,19 @@ async def gen_thumb(videoid, user_id):
                 )
 
         draw.text(
-            (500, 400),
+            (540, 400),
             f"Views : {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (500, 450),
+            (540, 450),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (500, 500),
+            (540, 500),
             f"Channel : {channel}",
             (255, 255, 255),
             font=arial,
