@@ -121,50 +121,63 @@ async def gen_thumb(videoid, user_id):
         #background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AM/assets/font2.ttf", 45)
-        ImageFont.truetype("AM/assets/font2.ttf", 70)
-        arial = ImageFont.truetype("AM/assets/font2.ttf", 30)
-        ImageFont.truetype("AM/assets/font.ttf", 30)
+        font = ImageFont.truetype("assets/font2.ttf", 40)
+        font2 = ImageFont.truetype("assets/font2.ttf", 70)
+        arial = ImageFont.truetype("assets/font2.ttf", 30)
+        name_font = ImageFont.truetype("assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
-        try:
-            draw.text(
-                (450, 300),
-                f"STARTED PLAYING",
-                fill="white",
-                stroke_width=3,
-                stroke_fill="grey",
-                font=font,
-            )
-            if para[0]:
-                text_w, text_h = draw.text(text=f"{para[0]}", font=font)
-                draw.text(
-                    ((1280 - text_w) / 2, 530),
-                    f"{para[0]}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-            if para[1]:
-                text_w, text_h = draw.text(text=f"{para[1]}", font=font)
-                draw.text(
-                    ((1280 - text_w) / 2, 580),
-                    f"{para[1]}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-        except:
-            pass
-        text_w, text_h = draw.text(text=f"Duration: {duration} Mins", font=arial)
+        j = 0
         draw.text(
-            ((1280 - text_w) / 2, 660),
-            f"Duration: {duration} Mins",
+            (5, 5), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
+        )
+        draw.text(
+            (430, 230),
+            "NOW PLAYING",
             fill="white",
+            stroke_width=2,
+            stroke_fill="white",
+            font=font2,
+        )
+        for line in para:
+            if j == 1:
+                j += 1
+                draw.text(
+                    (400, 250),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+            if j == 0:
+                j += 1
+                draw.text(
+                    (400, 270),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+
+        draw.text(
+            (450, 300),
+            f"Views : {views[:23]}",
+            (255, 255, 255),
             font=arial,
         )
-        
+        draw.text(
+            (450, 350),
+            f"Duration : {duration[:23]} Mins",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (450, 400),
+            f"Channel : {channel}",
+            (255, 255, 255),
+            font=arial,
+        )
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
