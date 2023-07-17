@@ -75,8 +75,8 @@ async def gen_thumb(videoid, user_id):
         xy = Image.open(wxy)
         a = Image.new('L', [640, 640], 0)
         b = ImageDraw.Draw(a)
-        #b.pieslice([(0, 0), (640,640)], 0, 225, fill = 255, outline = "white")
-        b.rectangle((100, 600, 1000, 1500), outline="blue")
+        b.pieslice([(0, 0), (640,640)], 0, 360, fill = 255, outline = "white")
+        #b.rectangle((100, 600, 1000, 1500), outline="blue")
         c = np.array(xy)
         d = np.array(a)
         e = np.dstack((c, d))
@@ -90,8 +90,8 @@ async def gen_thumb(videoid, user_id):
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
 
-        bg = Image.open(f"AM/assets/anney.png")
-        image3 = changeImageSize(1280, 720, bg)
+        bg = Image.open(f"AM/assets/svd.png")
+        image3 = changeImageSize(800, 800, bg)
         image5 = image3.convert("RGBA")
         Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
 
@@ -101,8 +101,8 @@ async def gen_thumb(videoid, user_id):
         y1 = Ycenter - 400
         x2 = Xcenter + 400
         y2 = Ycenter + 400
-        logo = youtube.crop((100, 10 ,1200, 700))
-        logo.thumbnail((500, 500), Image.LANCZOS)
+        logo = youtube.crop((x1, y1, x2, y2))
+        logo.thumbnail((200, 200), Image.LANCZOS)
         logo.save(f"cache/chop{videoid}.png")
         if not os.path.isfile(f"cache/cropped{videoid}.png"):
             im = Image.open(f"cache/chop{videoid}.png").convert("RGBA")
@@ -111,11 +111,11 @@ async def gen_thumb(videoid, user_id):
 
         crop_img = Image.open(f"cache/cropped{videoid}.png")
         logo = crop_img.convert("RGBA")
-        logo.thumbnail((600, 600), Image.LANCZOS)
+        logo.thumbnail((400, 400), Image.LANCZOS)
         width = int((1280 - 600) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (width - 100, 50), mask=logo)
-        background.paste(x, (1010, 427), mask=x)
+        background.paste(logo, (150, 350), mask=logo)
+        background.paste(x, (700, 100), mask=x)
         #background.paste(image3, (0, 0), mask=image3)
         
         try:
