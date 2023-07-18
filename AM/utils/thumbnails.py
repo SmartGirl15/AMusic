@@ -116,7 +116,7 @@ async def gen_thumb(videoid, user_id):
         #logo2 = logo1.rotate(45, PIL.Image.NEAREST, expand = 1)
         width = int((1280 - 600) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (210, 410), mask=logo)
+        background.paste(logo, (200, 200), mask=logo)
         #background.paste(x, (100, 800), mask=x)
         background.paste(x, (660, 90), mask=x)
         #background.paste(x, (550, 550), mask=x)
@@ -130,7 +130,7 @@ async def gen_thumb(videoid, user_id):
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (800, 750), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
+            (700, 750), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
         )
         draw.text(
             (35, 50),
